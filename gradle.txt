@@ -1,0 +1,27 @@
+2.gradle init
+  文件结构：
+
+
+1.如何写task：
+https://guides.gradle.org/creating-new-gradle-builds/
+
+
+2.生成文件
+
+plugins
+{
+	id 'war'
+	id 'idea'
+}
+
+task createJavaProject<<{
+	sourceSets*.java.srcDirs*.each{ it.mkdirs()}
+	sourceSets*.resources.srcDirs*.each{it.mkdirs()}
+}
+
+task createWebProjects(dependsOn:'createJavaProject')<<{
+ def webAppDir = file("$webAppDirName")  
+  def libDir = file("$webAppDirName/WEB-INF")  
+  webAppDir.mkdirs()  
+  libDir.mkdirs() 
+}

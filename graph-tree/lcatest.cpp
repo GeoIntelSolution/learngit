@@ -26,7 +26,7 @@ int main(){
     g[4].push_back(9); 
     g[9].push_back(4); 
 
-    dfs(1,1,memo,lev,log,g);
+    // dfs(1,1,memo,lev,log,g);
 
         
 }
